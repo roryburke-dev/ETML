@@ -1,16 +1,14 @@
 using UnityEngine;
 
-public class TextManager : MonoBehaviour
+namespace ETML
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class TextManager : MonoBehaviour
     {
-        
-    }
+        private TextManagerUtilities _utilities;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Awake()
+        {
+            _utilities = new TextManagerUtilities();
+        }
     }
 }
