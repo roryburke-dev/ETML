@@ -2,13 +2,17 @@ namespace ETML
 {
     public class TextManagerUtilities
     {
-    public enum ENUMFONTS
+      
+    }
+    
+    public enum ENUMFonts
     {
         CottonCloud,
         BadMood,
         Heartless
     }
-    public enum ENUMMOODS
+
+    public enum ENUMMoods
     {
         Angry,
         Ecstatic,
@@ -19,7 +23,8 @@ namespace ETML
         Relieved,
         Bored
     }
-    public enum ENUMCOLORS
+
+    public enum ENUMColors
     {
         Red,
         Yellow,
@@ -29,6 +34,5 @@ namespace ETML
         Grey,
         BlueGrey,
         Green
-    }
     }
 }
