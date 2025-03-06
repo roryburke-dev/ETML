@@ -1,4 +1,6 @@
-﻿namespace GameMath
+﻿using ETML.Utils.Math.GameMath.Geometry;
+
+namespace GameMath
 {
     using System;
 

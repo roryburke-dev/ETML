@@ -1,15 +1,13 @@
-﻿using ETML.Utils.Math.GameMath.Core;
+﻿using System;
+using ETML.Utils.Math.GameMath.Core;
+using GameMath;
 
-namespace GameMath
+namespace ETML.Utils.Math.GameMath.Geometry
 {
-    using System;
-
     /// <summary>
     ///   Axis-aligned box with integer position and extents.
     ///   Note that boxes are immutable.
     /// </summary>
-    /// <seealso cref="BoxF"/>
-    [CLSCompliant(true)]
     public struct BoxI : IEquatable<BoxI>
     {
         #region Fields
@@ -333,7 +331,7 @@ namespace GameMath
         /// </returns>
         public override bool Equals(object obj)
         {
-            return obj.GetType() == this.GetType() && this.Equals((BoxI)obj);
+            return obj != null && obj.GetType() == this.GetType() && this.Equals((BoxI)obj);
         }
 
         /// <summary>

@@ -1,11 +1,11 @@
-﻿namespace GameMath
-{
-    using System;
+﻿using ETML.Utils.Math.GameMath.Geometry;
+using GameMath;
 
+namespace ETML.Utils.Math.GameMath.Intersections
+{
     /// <summary>
     ///   Intersection tests for rectangles.
     /// </summary>
-    [CLSCompliant(true)]
     public static class RectangleIntersection
     {
         #region Public Methods and Operators

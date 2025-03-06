@@ -1,14 +1,11 @@
-﻿namespace GameMath
-{
-    using System;
+﻿using System;
+using GameMath;
 
+namespace ETML.Utils.Math.GameMath.Geometry
+{
     /// <summary>
     ///   Part of a line that is bounded by two distinct end points. Note that line segments are immutable.
     /// </summary>
-    /// <seealso cref="LineSegment2F"/>
-    /// <seealso cref="LineSegment3F"/>
-    /// <seealso cref="LineSegment3I"/>
-    [CLSCompliant(true)]
     public struct LineSegment2I : IEquatable<LineSegment2I>
     {
         #region Fields

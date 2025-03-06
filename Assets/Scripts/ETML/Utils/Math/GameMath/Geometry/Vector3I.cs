@@ -269,7 +269,7 @@
         /// <returns>
         ///   Euclidean distance between the two points.
         /// </returns>
-        public float Distance(Vector3I p)
+        public readonly float Distance(Vector3I p)
         {
             return Distance(this, p);
         }
@@ -305,7 +305,7 @@
         /// <returns>
         ///   Squared Euclidean distance between the two points.
         /// </returns>
-        public float DistanceSquared(Vector3I p)
+        public readonly float DistanceSquared(Vector3I p)
         {
             return DistanceSquared(this, p);
         }

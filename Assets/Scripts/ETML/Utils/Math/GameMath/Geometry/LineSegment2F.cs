@@ -1,15 +1,12 @@
-﻿namespace GameMath
-{
-    using System;
+﻿using System;
+using GameMath;
 
+namespace ETML.Utils.Math.GameMath.Geometry
+{
     /// <summary>
     ///   Part of a line that is bounded by two distinct end points. Note that line segments are immutable.
     /// </summary>
-    /// <seealso cref="LineSegment2I"/>
-    /// <seealso cref="LineSegment3F"/>
-    /// <seealso cref="LineSegment3I"/>
-    [CLSCompliant(true)]
-    public struct LineSegment2F : IEquatable<LineSegment2F>
+    public readonly struct LineSegment2F : IEquatable<LineSegment2F>
     {
         #region Fields
 
@@ -45,25 +42,12 @@
         /// <summary>
         ///   Length of this line segment.
         /// </summary>
-        public float Length
-        {
-            get
-            {
-                return this.p.Distance(this.q);
-            }
-        }
+        public float Length => this.q.Distance(this.p);
 
         /// <summary>
         ///   Squared length of this line segment.
-        ///   Faster than <see cref="Length" />.
         /// </summary>
-        public float LengthSquared
-        {
-            get
-            {
-                return this.p.DistanceSquared(this.q);
-            }
-        }
+        private float LengthSquared => this.p.DistanceSquared(this.q);
 
         /// <summary>
         ///   First point of this line segment.
@@ -105,13 +89,13 @@
         public bool Contains(Vector2F point)
         {
             var ab =
-                Math.Sqrt((this.Q.X - this.P.X) * (this.Q.X - this.P.X) + (this.Q.Y - this.P.Y) * (this.Q.Y - this.P.Y));
-            var ap = Math.Sqrt(
+                System.Math.Sqrt((this.Q.X - this.P.X) * (this.Q.X - this.P.X) + (this.Q.Y - this.P.Y) * (this.Q.Y - this.P.Y));
+            var ap = System.Math.Sqrt(
                 (point.X - this.P.X) * (point.X - this.P.X) + (point.Y - this.P.Y) * (point.Y - this.P.Y));
-            var pb = Math.Sqrt(
+            var pb = System.Math.Sqrt(
                 (this.Q.X - point.X) * (this.Q.X - point.X) + (this.Q.Y - point.Y) * (this.Q.Y - point.Y));
 
-            return Math.Abs(ab - (ap + pb)) < float.Epsilon;
+            return System.Math.Abs(ab - (ap + pb)) < float.Epsilon;
         }
 
         /// <summary>

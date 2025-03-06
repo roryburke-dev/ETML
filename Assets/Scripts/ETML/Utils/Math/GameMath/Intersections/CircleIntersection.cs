@@ -1,4 +1,7 @@
-﻿namespace GameMath
+﻿using ETML.Utils.Math.GameMath.Geometry;
+using ETML.Utils.Math.GameMath.Intersections;
+
+namespace GameMath
 {
     using System;
 

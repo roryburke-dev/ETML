@@ -1,11 +1,12 @@
-﻿namespace GameMath
-{
-    using System;
+﻿using System;
+using ETML.Utils.Math.GameMath.Geometry;
+using GameMath;
 
+namespace ETML.Utils.Math.GameMath.Intersections
+{
     /// <summary>
     ///   Intersection tests for line segments.
     /// </summary>
-    [CLSCompliant(true)]
     public static class LineIntersection
     {
         #region Public Methods and Operators
@@ -91,7 +92,7 @@
             // Get delta and check if the lines are parallel.
             var delta = a1 * b2 - a2 * b1;
 
-            if (Math.Abs(delta) < float.Epsilon)
+            if (System.Math.Abs(delta) < float.Epsilon)
             {
                 intersectionPoint = Vector2F.Zero;
                 return false;

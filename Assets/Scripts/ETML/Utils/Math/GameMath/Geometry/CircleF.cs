@@ -1,14 +1,14 @@
-﻿using ETML.Utils.Math.GameMath.Core;
+﻿using System;
+using ETML.Utils.Math.GameMath.Core;
+using GameMath;
+using MathF = System.MathF;
 
-namespace GameMath
+namespace ETML.Utils.Math.GameMath.Geometry
 {
-    using System;
-
     /// <summary>
     ///   Set of all points in a plane that are at a given distance from the center.
     ///   Note that circles are immutable.
     /// </summary>
-    [CLSCompliant(true)]
     public struct CircleF : IEquatable<CircleF>
     {
         #region Constants

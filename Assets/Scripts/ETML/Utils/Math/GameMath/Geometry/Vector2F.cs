@@ -200,7 +200,7 @@ namespace GameMath
         /// <returns>
         ///   Euclidean distance between the two points.
         /// </returns>
-        public float Distance(Vector2F p)
+        public readonly float Distance(Vector2F p)
         {
             return Distance(this, p);
         }
@@ -235,7 +235,7 @@ namespace GameMath
         /// <returns>
         ///   Squared Euclidean distance between the two points.
         /// </returns>
-        public float DistanceSquared(Vector2F p)
+        public readonly float DistanceSquared(Vector2F p)
         {
             return DistanceSquared(this, p);
         }

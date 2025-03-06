@@ -6,7 +6,6 @@ namespace ETML.Utils.Math.GameMath.Core
     /// <summary>
     ///   Common math operations on angles in radians.
     /// </summary>
-    [CLSCompliant(true)]
     public static class Angle
     {
         #region Public Methods and Operators

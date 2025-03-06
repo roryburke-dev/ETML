@@ -1,16 +1,16 @@
-﻿using ETML.Utils.Math.GameMath.Core;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using ETML.Utils.Math.GameMath.Core;
+using ETML.Utils.Math.GameMath.Intersections;
+using GameMath;
 
-namespace GameMath
+namespace ETML.Utils.Math.GameMath.Geometry
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     ///   Polygon in two-dimensional space with floating point points.
     /// </summary>
-    [CLSCompliant(true)]
     public class Polygon2F : IEquatable<Polygon2F>
     {
         #region Fields
@@ -370,7 +370,7 @@ namespace GameMath
                 var vw = w - v;
 
                 var angle = Angle.Between(vw, vu);
-                var convex = angle < Math.PI;
+                var convex = angle < System.Math.PI;
 
                 if (!convex)
                 {

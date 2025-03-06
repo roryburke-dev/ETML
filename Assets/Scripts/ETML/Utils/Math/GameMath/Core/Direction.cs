@@ -7,7 +7,6 @@
     /// <summary>
     ///   Cardinal direction.
     /// </summary>
-    [CLSCompliant(true)]
     [Flags]
     public enum Direction
     {
