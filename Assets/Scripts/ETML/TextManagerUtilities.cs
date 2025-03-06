@@ -1,8 +1,10 @@
+using ETML.Utils.Math.GameMath.Core;
+
 namespace ETML
 {
     public class TextManagerUtilities
     {
-      
+
     }
     
     public enum ENUMFonts
