@@ -38,19 +38,78 @@ namespace ETML.Utils.Parser
             path = rootVisualElement.Q<TextField>("TextFile").text + ".txt";
         }
 
+        private string fileText;
 
         private void ParseText()
         {
-            path = "Assets/Scripts/ETML/Utils/Parser/Data/" + path;
-            Debug.Log(path);
-            var data = File.ReadAllText(path);
-            var charData = data.ToCharArray();
-            var wordData = data.Split(new char[] { ' ', '.', ',', ';', '?', '!', '/' });
-            var csvData = data.Split(',');
-            foreach (var word in wordData)
+            fileText = ReadText();
+            var charArray = fileText.ToCharArray();
+            if (CheckIfEMTL())
             {
-                Debug.Log(word);
+                int j = 1000000;
+                for (int i = 0; i < charArray.Length; i++)
+                {
+                    if (charArray[i] == '[')
+                    {
+                        j = i;
+                    }
+                }
+
+                if (charArray[j + 1] == 'A')
+                {
+                    //Change to red
+                    Debug.Log("Red");
+                }
+                
+                else if (charArray[j + 1] == 'D')
+                {
+                    //Change to blue
+                    Debug.Log("Blue");
+                }
             }
+            else
+            {
+                Debug.Log("Error!");
+            }
+        }
+
+        private string ReadText()
+        {
+            return File.ReadAllText(GetFullPath());
+        }
+
+        private char[] ConvertFileToCharArray(string text)
+        {
+            return text.ToCharArray();
+        }
+
+        private string[] ConvertFileToWordArray(string text)
+        {
+            return text.Split(' ');
+        }
+
+        private string GetFullPath()
+        {
+            return "Assets/Scripts/ETML/Utils/Parser/Data/" + path;
+        }
+
+        private bool CheckIfEMTL()
+        {
+            var charArray = ConvertFileToCharArray(fileText);
+            var result = false;
+            foreach (var c in charArray)
+            {
+                if (c == '[')
+                {
+                    result = true;
+                }
+
+                if (c == ']' && result == false)
+                {
+                    return false;
+                }
+            }
+            return result;
         }
     }
 }
