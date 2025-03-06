@@ -1,6 +1,6 @@
 ﻿using ETML.Utils.Math.GameMath.Core;
 
-namespace GameMath
+namespace ETML.Utils.Math.GameMath.Functions
 {
     using System;
 

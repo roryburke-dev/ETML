@@ -1,4 +1,4 @@
-﻿namespace GameMath
+﻿namespace ETML.Utils.Math.GameMath.Core
 {
     using System;
 
@@ -44,9 +44,9 @@
         /// <summary>
         ///   Current state of the random number generation.
         /// </summary>
-        private ulong v;
+        private ulong _v;
 
-        #endregion
+        #endregion 
 
         #region Constructors and Destructors
 
@@ -81,8 +81,8 @@
 
             this.Seed = seed;
 
-            this.v = M ^ (ulong)seed;
-            this.v = this.NextULong();
+            this._v = M ^ (ulong)seed;
+            this._v = this.NextULong();
         }
 
         #endregion
@@ -93,7 +93,7 @@
         ///   Seed for the random number sequence.
         /// </summary>
         public long Seed { get; private set; }
-
+        
         #endregion
 
         #region Public Methods and Operators
@@ -180,11 +180,11 @@
         /// <returns>Next random number in the sequence as a 64-bit unsigned integer.</returns>
         private ulong NextULong()
         {
-            this.v ^= this.v >> A1;
-            this.v ^= this.v << A2;
-            this.v ^= this.v >> A3;
+            this._v ^= this._v >> A1;
+            this._v ^= this._v << A2;
+            this._v ^= this._v >> A3;
 
-            return this.v * A;
+            return this._v * A;
         }
 
         #endregion

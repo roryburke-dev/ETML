@@ -1,7 +1,7 @@
-﻿namespace GameMath
+﻿namespace ETML.Utils.Math.GameMath.Algorithms
 {
     using System;
-    using System.Collections.Generic;
+    //using System.Collections.Generic;
 
     /// <summary>
     ///   Optimized version of the Bresenham line algorithm that finds an
@@ -11,7 +11,7 @@
     public class Bresenham
     {
         #region Public Methods and Operators
-
+/*
         /// <summary>
         ///   Returns an approximation to a straight line between the given points.
         /// </summary>
@@ -27,7 +27,7 @@
         /// <returns>
         ///   Approximation to a straight line between the given points.
         /// </returns>
-        public List<Vector2I> Plot(Vector2I p, Vector2I q)
+       /* public List<Vector2I> Plot(Vector2I p, Vector2I q)
         {
             var line = new List<Vector2I>();
 
@@ -94,7 +94,7 @@
             }
 
             return line;
-        }
+        }*/
 
         #endregion
     }

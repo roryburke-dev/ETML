@@ -1,15 +1,11 @@
-﻿using ETML.Utils.Math.GameMath.Core;
-
-namespace GameMath
+﻿
+namespace ETML.Utils.Math.GameMath.Core
 {
     using System;
 
     /// <summary>
     ///   Common math operations on integer numbers.
     /// </summary>
-    /// <seealso cref="MathD"/>
-    /// <seealso cref="MathF"/>
-    /// <seealso cref="MathUtils"/>
     [CLSCompliant(true)]
     public static class MathI
     {

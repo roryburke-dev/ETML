@@ -1,14 +1,10 @@
 ﻿using System;
-using GameMath;
 
 namespace ETML.Utils.Math.GameMath.Core
 {
     /// <summary>
     ///   Math utility methods, independent of a specific type.
     /// </summary>
-    /// <seealso cref="MathD"/>
-    /// <seealso cref="GameMath.MathF"/>
-    /// <seealso cref="MathI"/>
     [CLSCompliant(true)]
     public static class MathUtils
     {
