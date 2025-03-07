@@ -99,18 +99,18 @@ namespace ETML.Model
             return _spriteRenderer;
         }
 
-        public void ChangeColor(ENUMColors color)
+        public void ChangeColor(ENUMColor color)
         {
             var c = color switch
             {
-                ENUMColors.Red => Color.red,
-                ENUMColors.Green => Color.green,
-                ENUMColors.Blue => Color.blue,
-                ENUMColors.Yellow => Color.yellow,
-                ENUMColors.Pink => Color.magenta,
-                ENUMColors.Purple => Color.white,
-                ENUMColors.Grey => Color.gray,
-                ENUMColors.BlueGrey => Color.blue,
+                ENUMColor.Red => Color.red,
+                ENUMColor.Green => Color.green,
+                ENUMColor.Blue => Color.blue,
+                ENUMColor.Yellow => Color.yellow,
+                ENUMColor.Pink => Color.magenta,
+                ENUMColor.Purple => Color.white,
+                ENUMColor.Grey => Color.gray,
+                ENUMColor.BlueGrey => Color.blue,
                 _ => throw new ArgumentOutOfRangeException(nameof(color), color, null)
             };
             _spriteRenderer.color = c;

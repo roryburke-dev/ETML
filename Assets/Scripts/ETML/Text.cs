@@ -1,7 +1,12 @@
+using ETML.Utils.LinkedList;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Text", menuName = "Scriptable Objects/Text")]
-public class Text : ScriptableObject
+namespace ETML
 {
-    
+    [CreateAssetMenu(fileName = "Text", menuName = "Scriptable Objects/Text")]
+    public class Text : ScriptableObject
+    {
+        // Storing text and modifiers in relation
+        public TextData[] data;
+    }
 }

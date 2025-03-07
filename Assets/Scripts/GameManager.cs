@@ -1,12 +1,14 @@
 using System;
 using ETML;
 using ETML.Model;
+using ETML.Utils.LinkedList;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     private TextManager _textManager;
     public Letter letterTest;
+    public Text text;
     
     private void Awake() 
     {
@@ -24,12 +26,17 @@ public class GameManager : MonoBehaviour
         letterTest.SetScale(growingNumber, growingNumber, 0);
         if (Input.GetKeyDown(KeyCode.B))
         {
-            letterTest.ChangeColor(ENUMColors.Blue);
+            letterTest.ChangeColor(ENUMColor.Blue);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            letterTest.ChangeColor(ENUMColors.Red);
+            letterTest.ChangeColor(ENUMColor.Red);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(text.data[0].text);
         }
     }
 }

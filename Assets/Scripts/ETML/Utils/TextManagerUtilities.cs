@@ -7,15 +7,18 @@ namespace ETML
 
     }
     
-    public enum ENUMFonts
+    public enum ENUMFont
     {
         CottonCloud,
         BadMood,
         Heartless
     }
 
-    public enum ENUMMoods
+    public enum ENUMModifier
     {
+        None,
+        
+        // Moods
         Angry,
         Ecstatic,
         Confused,
@@ -26,7 +29,7 @@ namespace ETML
         Bored
     }
 
-    public enum ENUMColors
+    public enum ENUMColor
     {
         Red,
         Yellow,
