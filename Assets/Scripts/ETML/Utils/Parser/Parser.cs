@@ -152,6 +152,22 @@ namespace ETML.Utils.Parser
                 _ => Modifier.None
             };
         }
+        
+        private Color ConvertColorEnumToColor(EColor colorEnum)
+        {
+            return colorEnum switch
+            {
+                EColor.Blue => new Color(0, 0, 225),
+                EColor.Red => new Color(171,50,50),
+                EColor.Grey => new Color(187, 187, 187),
+                EColor.Yellow => new Color(255, 216, 0),
+                EColor.Pink => new Color(255, 0, 141),
+                EColor.BlueGrey => new Color(71, 92, 101),
+                EColor.Purple => new Color(29, 27, 84),
+                EColor.Teal => new Color(111, 203, 159),
+                _ => Color.white
+            };
+        }
 
         private string ReadText() 
         { 

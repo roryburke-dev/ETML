@@ -38,6 +38,7 @@ namespace ETML
         Purple,
         Grey,
         BlueGrey,
-        Green
+        Green,
+        Teal
     }
 }
