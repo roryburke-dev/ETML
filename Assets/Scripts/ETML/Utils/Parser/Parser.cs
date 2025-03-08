@@ -50,13 +50,18 @@ namespace ETML.Utils.Parser
             // Parse File
             path = "TextFile.txt";
             fileText = ReadText();
+            
+            // Parsed text as full phrases with modifiers as strings
+            var modifierStrings = new string[5];
+            var textStrings = new string[5];
+            
+            // Populate string arrays
             var charArray = fileText.ToCharArray();
             var i = 0;
             var j = 0;
             var isStarting = false;
             var isCounting = false;
-            var modifierStrings = new string[5];
-            var textStrings = new string[5];
+            
             foreach (var ch in charArray)
             {
                 if (!isStarting)
@@ -132,30 +137,20 @@ namespace ETML.Utils.Parser
             Selection.activeObject = asset;
         }
         
-        private ENUMModifier ConvertModifierStringToEnum(string modifierStr)
+        private Modifier ConvertModifierStringToEnum(string modifierStr)
         {
             return modifierStr switch
             {
-                "ANG"  => ENUMModifier.Angry,
-                "ECT"  => ENUMModifier.Ecstatic,
-                "CON"  => ENUMModifier.Confused,
-                "DEP"  => ENUMModifier.Depressed,
-                "SCD"  => ENUMModifier.Scared,
-                "TRD" => ENUMModifier.Tired,
-                "REL" => ENUMModifier.Relieved,
-                "BRD" => ENUMModifier.Bored,
-                _ => ENUMModifier.None
+                "ANG"  => Modifier.Angry,
+                "ECT"  => Modifier.Ecstatic,
+                "CON"  => Modifier.Confused,
+                "DEP"  => Modifier.Depressed,
+                "SCD"  => Modifier.Scared,
+                "TRD" => Modifier.Tired,
+                "REL" => Modifier.Relieved,
+                "BRD" => Modifier.Bored,
+                _ => Modifier.None
             };
-        }
-
-        private Text CreateTextObj()
-        {
-            var textObj = CreateInstance<Text>();
-            AssetDatabase.CreateAsset(textObj, "Assets/ETML/Utils/Parser/Data/ScriptableObjects/TextObj.asset");
-            AssetDatabase.SaveAssets();
-            EditorUtility.FocusProjectWindow();
-            Selection.activeObject = textObj;
-            return textObj;
         }
 
         private string ReadText() 
@@ -184,13 +179,14 @@ namespace ETML.Utils.Parser
             var result = false; 
             foreach (var c in charArray)
             {
-                if (c == '[')
+                switch (c)
                 {
-                    result = true;
-                } 
-                if (c == ']' && result == false) 
-                {
-                    return false; }
+                    case '[':
+                        result = true;
+                        break;
+                    case ']' when result == false:
+                        return false;
+                }
             } 
             return result;
         }

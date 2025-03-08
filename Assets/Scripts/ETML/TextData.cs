@@ -5,7 +5,7 @@ namespace ETML
     [CreateAssetMenu(fileName = "TextData", menuName = "Scriptable Objects/TextData")]
     public class TextData : ScriptableObject
     {
-        public ENUMModifier modifier;
+        public Modifier modifier;
         public string text;
     }
 }

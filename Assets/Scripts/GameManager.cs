@@ -1,7 +1,6 @@
 using System;
 using ETML;
 using ETML.Model;
-using ETML.Utils.LinkedList;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
     }
 
     private float growingNumber;
+    private int count;
     
     private void Update()
     {
@@ -26,17 +26,23 @@ public class GameManager : MonoBehaviour
         letterTest.SetScale(growingNumber, growingNumber, 0);
         if (Input.GetKeyDown(KeyCode.B))
         {
-            letterTest.ChangeColor(ENUMColor.Blue);
+            letterTest.ChangeColor(EColor.Blue);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            letterTest.ChangeColor(ENUMColor.Red);
+            letterTest.ChangeColor(EColor.Red);
         }
-
+        
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log(text.data[0].text);
+            if (count > 4)
+            {
+                count = 0;
+            }
+
+            Debug.Log(text.data[count].text);
+            count++;
         }
     }
 }

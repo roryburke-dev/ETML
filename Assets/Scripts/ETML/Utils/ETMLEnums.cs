@@ -1,6 +1,6 @@
 namespace ETML.Utils
 {
-    public enum ENUMProfile
+    public enum Profile
     {
         Basic,
         Wacky,

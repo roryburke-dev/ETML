@@ -7,14 +7,14 @@ namespace ETML
 
     }
     
-    public enum ENUMFont
+    public enum Font
     {
         CottonCloud,
         BadMood,
         Heartless
     }
 
-    public enum ENUMModifier
+    public enum Modifier
     {
         None,
         
@@ -29,7 +29,7 @@ namespace ETML
         Bored
     }
 
-    public enum ENUMColor
+    public enum EColor
     {
         Red,
         Yellow,
