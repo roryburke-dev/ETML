@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb5f8f3fb3471644b8cd3d67931cc555, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
-  modifier: 1
-  text: TESTING
+  modifier: 0
+  text: 
