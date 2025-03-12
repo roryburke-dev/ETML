@@ -15,7 +15,6 @@ namespace TextBox.Scripts
         {
             _testText = "This is a test";
             _testChars = _testText.ToCharArray();
-            _textbox.SetCells(new ICell[5,28]);
         }
 
         public void SetTextbox(Textbox textbox)
@@ -30,12 +29,20 @@ namespace TextBox.Scripts
             {
                 for (int j = 0; j < _textbox.GetCells().GetLength(1); j++)
                 {
-                    var cell = Instantiate(cellPrefab).GetComponent<Cell>();
-                    cell.Init(letters[h], new Vector2(i, j));
-                    _textbox.SetCell(cell, new Vector2(i, j));
-                    h++;
+                    if (h < letters.Length)
+                    {
+                        var cell = Instantiate(cellPrefab).GetComponent<Cell>();
+                        cell.Init(letters[h], new Vector2(i, j));
+                        _textbox.SetCell(cell, new Vector2(i, j));
+                        h++;
+                    }
                 }   
             }
+        }
+
+        public Textbox GetTextbox()
+        {
+            return _textbox;
         }
     }
 }
