@@ -1,16 +1,41 @@
+using System;
 using UnityEngine;
 
-public class TextboxController : MonoBehaviour
+namespace TextBox.Scripts
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class TextboxController : MonoBehaviour
     {
-        
-    }
+        public Transform cellPrefab;
+        private Textbox _textbox;
+        private Transform _textboxTransform;
+        private string _testText; //Delete!!
+        public char[] _testChars; //Delete!!
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        private void Start()
+        {
+            _testText = "This is a test";
+            _testChars = _testText.ToCharArray();
+            _textbox.SetCells(new ICell[5,28]);
+        }
+
+        public void SetTextbox(Textbox textbox)
+        {
+            _textbox = textbox;
+        }
+
+        public void SetTextInTextbox(char[] letters)
+        {
+            int h = 0;
+            for (int i =0; i < _textbox.GetCells().GetLength(0); i++ )
+            {
+                for (int j = 0; j < _textbox.GetCells().GetLength(1); j++)
+                {
+                    var cell = Instantiate(cellPrefab).GetComponent<Cell>();
+                    cell.Init(letters[h], new Vector2(i, j));
+                    _textbox.SetCell(cell, new Vector2(i, j));
+                    h++;
+                }   
+            }
+        }
     }
 }
