@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 namespace TextBox.Scripts
@@ -8,30 +9,41 @@ namespace TextBox.Scripts
         public Transform cellPrefab;
         private Textbox _textbox;
         private Transform _textboxTransform;
-        private string _testText; //Delete!!
-        public char[] _testChars; //Delete!!
+        private float _offset;
 
-        private void Start()
+        private void Awake()
         {
-            _testText = "This is a test";
-            _testChars = _testText.ToCharArray();
+            _offset = 3.5f;
         }
 
         public void SetTextbox(Textbox textbox)
         {
             _textbox = textbox;
+            _textboxTransform = textbox.transform;
         }
 
+        // Origin = (-600, 100, 0), Offset = (40,-40,0)
         public void SetTextInTextbox(char[] letters)
         {
-            int h = 0;
-            for (int i =0; i < _textbox.GetCells().GetLength(0); i++ )
+            var h = 0;
+            for (var i =0; i < 5; i++ )
             {
-                for (int j = 0; j < _textbox.GetCells().GetLength(1); j++)
+                for (var j = 0; j < 28; j++)
                 {
-                    if (h < letters.Length)
+                    if (h <= letters.Length - 1)
                     {
                         var cell = Instantiate(cellPrefab).GetComponent<Cell>();
+                        cell.transform.SetParent(_textboxTransform, false);
+                        cell.transform.localPosition = new Vector3(-45, 7, 0);
+                        if (h != 0)
+                        {
+                            cell.transform.localPosition = new Vector3
+                            (
+                                cell.transform.localPosition.x + (_offset * j),
+                                cell.transform.localPosition.y + (_offset * -i),
+                                cell.transform.localPosition.z
+                            );
+                        }
                         cell.Init(letters[h], new Vector2(i, j));
                         _textbox.SetCell(cell, new Vector2(i, j));
                         h++;

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +9,11 @@ namespace TextBox.Scripts
     public class Textbox : MonoBehaviour
     {
         private Image _image;
-        private ICell[,] _cells; //[row][column]
+        private List<ICell> _cells; //[row][column]
 
         private void Awake()
         {
-            _cells = new ICell[,] { };
+            _cells = new List<ICell>();
         }
 
         public void ChangeImageSprite(Sprite sprite)
@@ -22,24 +24,25 @@ namespace TextBox.Scripts
         }
 
         //Do before setting individual ICells!!!!!
-        public void SetCells(ICell[,] cells)
+        public void SetCells(List<ICell> cells)
         {
             _cells = cells;
         }
 
-        public ICell[,] GetCells()
+        public List<ICell> GetCells()
         {
-            return _cells;
+            return _cells.Cast<ICell>().Where(cell => cell.Active).ToList();
         }
 
         public void SetCell(ICell cell, Vector2 pos)
         {
-            _cells[(int)pos.x,(int)pos.y] = cell;
+            cell.Position = pos;
+            _cells.Add(cell);
         }
 
         public ICell GetCell(Vector2 pos)
         {
-            return _cells[(int)pos.x,(int)pos.y];
+            return _cells[(int)((pos.x * 28) + pos.y)];
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ETML;
 using ETML.Model;
 using TextBox.Scripts;
@@ -27,13 +28,14 @@ public class GameManager : MonoBehaviour
             _textboxController = textbox.GetComponent<TextboxController>();
             _textbox = textbox.GetComponent<Textbox>();
             _textboxController.SetTextbox(_textbox);
-            _textboxController.GetTextbox().SetCells(new ICell[5,28]);
+            _textboxController.GetTextbox().SetCells(new List<ICell>());
         }
     }
 
     private float growingNumber;
     private int count;
     
+    bool doOnce = false;
     private void Update()
     {
         growingNumber += Time.deltaTime;
@@ -59,20 +61,21 @@ public class GameManager : MonoBehaviour
             count++;
         }
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (!doOnce)
         {
             if (_textboxController.GetTextbox() != null)
             {
-                var testText = "This is a test";
+                var testText = "This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.This is a test.asfjv";
                 var testChars = testText.ToCharArray();
                 _textboxController.SetTextInTextbox(testChars);
                 foreach (var letter in _textboxController.GetTextbox().GetCells())
                 {
-                    if (letter != null)
+                    if (letter.Active)
                     {
-                        Debug.Log(letter.Letter);
+                        Debug.Log(letter.Text.text);
                     }
                 }
+                doOnce = true;
             }
             /*
             foreach (var letter in _textboxController.GetTextbox().GetCells())
